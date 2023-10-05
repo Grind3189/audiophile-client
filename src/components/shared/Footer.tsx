@@ -47,19 +47,19 @@ const Footer = () => {
               HOME
             </Link>
             <Link
-              to="/headphones"
+              to="category?cat=headphones"
               className="tracking-[2px] hover:text-red_orange-200"
             >
               HEADPHONES
             </Link>
             <Link
-              to="/speakers"
+              to="category?cat=speakers"
               className="tracking-[2px] hover:text-red_orange-200"
             >
               SPEAKERS
             </Link>
             <Link
-              to="/earphones"
+              to="category?cat=earphones"
               className="tracking-[2px] hover:text-red_orange-200"
             >
               EARPHONES

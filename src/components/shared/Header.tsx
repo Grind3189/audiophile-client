@@ -1,34 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import burgerIc from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
 import cartIc from "../../assets/icons/icon-cart.svg";
 import Menu from "./Menu";
 import Backdrop from "./Backdrop";
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
+import { WidthContext } from "../../context/WidthContextProvider";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-  const [width, setWidth] = useState<number>(window.innerWidth);
-  useEffect(() => {
-    const handleChangeWidth = () => {
-      setWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleChangeWidth);
-
-    return () => {
-      window.removeEventListener("resize", handleChangeWidth);
-    };
-  });
-
+  const [searchParams] = useSearchParams();
+  const queryParams = searchParams.get("cat");
+  const link = "tracking-[2px] hover:text-red_orange-200";
+  const { width } = useContext(WidthContext);
   const handleToggleMenu = () => {
     setToggleMenu((prev) => !prev);
   };
 
-  document.body.style.overflow = toggleMenu ? "hidden" : "auto"
+  document.body.style.overflow = toggleMenu ? "hidden" : "auto";
   return (
-    <header className="lg:px-[165px] bg-black-300">
-      <div className="bg-black-300 relative flex h-[90px] items-center justify-center border-b-2 border-b-zinc-800 px-6 md:px-[39px] lg:px-0">
+    <header className="bg-black-300 lg:px-[165px]">
+      <div className="relative flex h-[90px] items-center justify-center border-b border-b-zinc-800 bg-black-300 px-6 md:px-[39px] lg:px-0">
         <nav className="flex w-full items-center justify-between">
           {width < 1110 && (
             <img
@@ -42,42 +34,44 @@ const Header = () => {
             <img src={logo} />
           </Link>
           <div className="flex gap-[34px] text-[13px] font-bold max-lg:hidden">
-            <NavLink
+            <Link
               to="/"
-              className="tracking-[2px] text-white-100 hover:text-red_orange-200"
-              style={({ isActive }) =>
-                isActive ? { color: "#D87D4A" } : undefined
-              }
+              className={`${link} ${
+                !queryParams ? "text-red_orange-200" : "text-white-100"
+              }`}
             >
               HOME
-            </NavLink>
-            <NavLink
-              to="/headphones"
-              className="tracking-[2px] text-white-100 hover:text-red_orange-200"
-              style={({ isActive }) =>
-                isActive ? { color: "#D87D4A" } : undefined
-              }
+            </Link>
+            <Link
+              to="category?cat=headphones"
+              className={`${link} ${
+                queryParams === "headphones"
+                  ? "text-red_orange-200"
+                  : "text-white-100"
+              }`}
             >
               HEADPHONES
-            </NavLink>
-            <NavLink
-              to="/speakers"
-              className="tracking-[2px] text-white-100 hover:text-red_orange-200"
-              style={({ isActive }) =>
-                isActive ? { color: "#D87D4A" } : undefined
-              }
+            </Link>
+            <Link
+              to="category?cat=speakers"
+              className={`${link} ${
+                queryParams === "speakers"
+                  ? "text-red_orange-200"
+                  : "text-white-100"
+              }`}
             >
               SPEAKERS
-            </NavLink>
-            <NavLink
-              to="/earphones"
-              className="tracking-[2px] text-white-100 hover:text-red_orange-200"
-              style={({ isActive }) =>
-                isActive ? { color: "#D87D4A" } : undefined
-              }
+            </Link>
+            <Link
+              to="category?cat=earphones"
+              className={`${link} ${
+                queryParams === "earphones"
+                  ? "text-red_orange-200"
+                  : "text-white-100"
+              }`}
             >
               EARPHONES
-            </NavLink>
+            </Link>
           </div>
           <img src={cartIc} alt="cart icon" />
         </nav>

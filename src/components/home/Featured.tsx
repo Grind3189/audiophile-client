@@ -4,14 +4,14 @@ const Featured = () => {
   return (
     <section className="flex flex-col gap-[24px] md:gap-8 xl:gap-12">
       <div
-        className={`relative flex h-[600px] -z-10 flex-col items-center justify-center
+        className={`relative flex h-[600px] flex-col items-center justify-center
           overflow-hidden rounded-lg bg-red_orange-200 
           text-center text-white-100 md:h-[720px] 
           xl:h-[560px] xl:flex-row xl:items-end xl:justify-evenly`}
       >
         {/* image */}
         <div className="xl:bg-zx9-xl z-10 mb-8 h-[207px] w-[172px] bg-zx9-sm bg-cover md:mb-[64px] md:h-[237px] md:w-[197px] md:bg-zx9-md xl:mb-[-8px] xl:h-[493px] xl:w-[410px]" />
-        <div className="xl:mt-[110px] xl:self-start xl:text-left">
+        <div className="xl:mt-[110px] z-20 xl:self-start xl:text-left">
           <h1 className="mb-6 text-[36px] font-bold leading-10 tracking-[1.3px] md:text-[56px] md:leading-[56px] md:tracking-[2px]">
             ZX9 <br />
             SPEAKER
@@ -31,7 +31,7 @@ const Featured = () => {
         <img
           src={circlePattern}
           alt="circle pattern"
-          className="absolute -z-10 left-0 right-0 top-[-70px] scale-150 md:top-[-190px] md:scale-125 xl:top-0 xl:scale-110"
+          className="absolute left-0 right-0 top-[-70px] scale-150 md:top-[-190px] md:scale-125 xl:top-0 xl:scale-110"
         />
       </div>
 
