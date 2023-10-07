@@ -22,7 +22,7 @@ const Featured = () => {
             remarkable sound.
           </p>
           <Link
-            to=""
+            to="product/zx9-speaker"
             className="z-10 bg-black-200 px-8 py-[15px] lg:hover:bg-[#4C4C4C]"
           >
             SEE PRODUCT
@@ -40,7 +40,7 @@ const Featured = () => {
           ZX7 SPEAKER
         </h1>
         <Link
-          to=""
+          to="product/zx7-speaker"
           className="border-2 border-black-200 px-8 py-[15px] text-[13px] font-bold tracking-[1px] lg:hover:bg-black-200 lg:hover:text-white-100"
         >
           SEE PRODUCT
@@ -55,7 +55,7 @@ const Featured = () => {
             YX1 EARPHONES
           </h1>
           <Link
-            to=""
+            to="product/yx1-earphones"
             className="border-2 border-black-200 px-8 py-[15px] text-[13px] font-bold tracking-[1px] lg:hover:bg-black-200 lg:hover:text-white-100"
           >
             SEE PRODUCT
