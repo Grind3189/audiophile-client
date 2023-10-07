@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="mt-[120px]">
       <div className="mb-[120px] px-6 text-center lg:px-[165px] xl:mx-auto xl:flex xl:h-[588px] xl:flex-row-reverse xl:items-center xl:justify-between xl:gap-[30px]">
         {/* img */}
-        <div className="bg-footer-sm md:bg-footer-md xl:bg-footer-lg mb-10 h-[300px] w-[380px] rounded-lg bg-cover max-xl:mx-auto md:mb-[63px] md:w-[689px] xl:mb-0 xl:h-full xl:w-[50%]" />
+        <div className="bg-footer-sm md:bg-footer-md xl:bg-footer-lg mb-10 h-[300px] max-md:max-w-[380px] rounded-lg bg-cover max-xl:mx-auto md:mb-[63px] md:w-[689px] xl:mb-0 xl:h-full xl:w-[50%]" />
         <div className="mx-auto max-w-[327px] md:max-w-[573px] xl:w-[50%] xl:text-left">
           <h1 className="mx-auto mb-8 text-[28px] font-bold uppercase leading-[44px] tracking-[1px] md:text-[40px] xl:mx-0 xl:max-w-[445px] ">
             Bringing you the <span className="text-red_orange-200">best</span>{" "}

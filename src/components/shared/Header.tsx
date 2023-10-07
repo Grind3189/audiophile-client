@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 import burgerIc from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
 import cartIc from "../../assets/icons/icon-cart.svg";
@@ -10,6 +10,7 @@ import { WidthContext } from "../../context/WidthContextProvider";
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
   const [searchParams] = useSearchParams();
+  const { pathname } = useLocation();
   const queryParams = searchParams.get("cat");
   const link = "tracking-[2px] hover:text-red_orange-200";
   const { width } = useContext(WidthContext);
@@ -37,7 +38,7 @@ const Header = () => {
             <Link
               to="/"
               className={`${link} ${
-                !queryParams ? "text-red_orange-200" : "text-white-100"
+                pathname === "/" ? "text-red_orange-200" : "text-white-100"
               }`}
             >
               HOME
