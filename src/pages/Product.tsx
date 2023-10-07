@@ -10,7 +10,7 @@ import Menu from "../components/shared/Menu";
 function Product() {
   const { slug } = useParams();
   const location = useLocation();
-  console.log("Product", location);
+  console.log(location);
   const { width } = useContext(WidthContext);
   const { data, loading, error } = useFetch(
     `/products?filters[slug][$eq]=${slug}&&populate=mobile&populate=tablet&populate=desktop
@@ -35,7 +35,7 @@ function Product() {
         to={location.state ? location.state.prevPath : ".."}
         className="mb-6 mt-4 inline-block text-[15px] font-medium opacity-50"
       >
-        Go back
+        {location.state ? "Go back" : "Go home"}
       </Link>
       {error && (
         <h1 className="text-[38px] text-red-900">Something went wrong</h1>
@@ -53,7 +53,7 @@ function Product() {
             baseUrl={baseUrl}
             width={width}
           />
-          <div className="flex flex-col justify-center items-center gap-[68px] md:flex-row md:gap-[10px] xl:justify-between">
+          <div className="flex flex-col items-center justify-center gap-[68px] md:flex-row md:gap-[10px] xl:justify-between">
             <Menu />
           </div>
         </>

@@ -13,6 +13,7 @@ const CategoryProducts = ({
   width,
 }: CategoryProducts) => {
   const location = useLocation();
+
   const {
     categoryMobile,
     categoryTablet,
