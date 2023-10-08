@@ -1,24 +1,46 @@
 import { Link, useLocation, useSearchParams } from "react-router-dom";
 import burgerIc from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
-import cartIc from "../../assets/icons/icon-cart.svg";
 import Menu from "./Menu";
 import Backdrop from "./Backdrop";
 import { useState, useContext } from "react";
 import { WidthContext } from "../../context/WidthContextProvider";
+import Cart from "./Cart";
 
 const Header = () => {
-  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
   const [searchParams] = useSearchParams();
   const { pathname } = useLocation();
   const queryParams = searchParams.get("cat");
   const link = "tracking-[2px] hover:text-red_orange-200";
   const { width } = useContext(WidthContext);
+
   const handleToggleMenu = () => {
-    setToggleMenu((prev) => !prev);
+    setShowMenu((prev) => {
+      if (prev && !showCart) {
+        toggleScrollbar("auto");
+      } else {
+        toggleScrollbar("hidden");
+      }
+      return !prev;
+    });
+  };
+  const handleToggleCart = () => {
+    setShowCart((prev) => {
+      if (prev && !showMenu) {
+        toggleScrollbar("auto");
+      } else {
+        toggleScrollbar("hidden");
+      }
+      return !prev;
+    });
   };
 
-  document.body.style.overflow = toggleMenu ? "hidden" : "auto";
+  const toggleScrollbar = (status: string) => {
+    document.body.style.overflowY = status;
+  };
+
   return (
     <header className="bg-black-300 lg:px-[165px]">
       <div className="relative flex h-[90px] items-center justify-center border-b border-b-zinc-800 bg-black-300 px-6 md:px-[39px] lg:px-0">
@@ -31,7 +53,7 @@ const Header = () => {
               className="cursor-pointer"
             />
           )}
-          <Link to="/" onClick={() => setToggleMenu(false)}>
+          <Link to="/" onClick={() => setShowMenu(false)}>
             <img src={logo} />
           </Link>
           <div className="flex gap-[34px] text-[13px] font-bold max-lg:hidden">
@@ -74,13 +96,13 @@ const Header = () => {
               EARPHONES
             </Link>
           </div>
-          <img src={cartIc} alt="cart icon" />
+          <Cart showCart={showCart} handleToggleCart={handleToggleCart} />
         </nav>
         {width < 1110 && (
           <div
             className={`absolute left-0 right-0 top-[90px] z-10 h-[calc(100dvh-90px)]
           transition-all ${
-            toggleMenu
+            showMenu
               ? "opacity-1 visible max-md:translate-x-0 md:translate-y-0"
               : "invisible opacity-0 max-md:-translate-x-1/2 md:-translate-y-[20%]"
           }`}

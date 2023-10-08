@@ -10,7 +10,6 @@ import Menu from "../components/shared/Menu";
 function Product() {
   const { slug } = useParams();
   const location = useLocation();
-  console.log(location);
   const { width } = useContext(WidthContext);
   const { data, loading, error } = useFetch(
     `/products?filters[slug][$eq]=${slug}&&populate=mobile&populate=tablet&populate=desktop

@@ -7,7 +7,6 @@ interface RecommendedProp {
 }
 const Recommended = ({ recommendedData, baseUrl, width }: RecommendedProp) => {
   const location = useLocation();
-  console.log(location);
   return (
     <section className="mb-[172px] text-center text-[24px] font-bold">
       <h1 className="mb-10">YOU MAY ALSO LIKE</h1>

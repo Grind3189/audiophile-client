@@ -15,7 +15,7 @@ const Menu = ({toggle}: MenuProp) => {
           <img src={headphone} alt="headphone image" className="mt-[-55px] mb-[36px]" style={{filter: "drop-shadow(0px 30px 30px #000000)"}}/>
           <h3 className="font-bold text-[15px] mb-[15px] tracking-[1px]">HEADPHONES</h3>
           <div className="flex items-center gap-3">
-            <span className="opacity-50 font-bold tracking-[1px] text-[13px]">SHOP</span>
+            <span className="opacity-50 font-bold tracking-[1px] text-[13px] lg:hover:text-red_orange-200 lg:hover:opacity-100">SHOP</span>
             <img src={arrowRightIc} />
           </div>
         </div>
@@ -25,7 +25,7 @@ const Menu = ({toggle}: MenuProp) => {
           <img src={speaker} alt="speaker image" className="mt-[-55px] mb-[36px]" style={{filter: "drop-shadow(0px 30px 30px #000000)"}}/>
           <h3 className="font-bold text-[15px] mb-[15px] tracking-[1px]">SPEAKERS</h3>
           <div className="flex items-center gap-3">
-            <span className="opacity-50 font-bold tracking-[1px] text-[13px]">SHOP</span>
+            <span className="opacity-50 font-bold tracking-[1px] text-[13px] lg:hover:text-red_orange-200 lg:hover:opacity-100">SHOP</span>
             <img src={arrowRightIc} />
           </div>
         </div>
@@ -35,7 +35,7 @@ const Menu = ({toggle}: MenuProp) => {
           <img src={earphone} alt="earphone image" className="mt-[-55px] mb-[36px]" style={{filter: "drop-shadow(0px 30px 30px #000000)"}}/>
           <h3 className="font-bold text-[15px] mb-[15px] tracking-[1px]">EARPHONES</h3>
           <div className="flex items-center gap-3">
-            <span className="opacity-50 font-bold tracking-[1px] text-[13px]">SHOP</span>
+            <span className="opacity-50 font-bold tracking-[1px] text-[13px] lg:hover:text-red_orange-200 lg:hover:opacity-100">SHOP</span>
             <img src={arrowRightIc} />
           </div>
         </div>
