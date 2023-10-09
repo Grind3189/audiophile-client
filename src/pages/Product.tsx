@@ -1,6 +1,6 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { WidthContext } from "../context/WidthContextProvider";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import useFetch from "../hooks/useFetch";
 import Details from "../components/product/Details";
 import Gallery from "../components/product/Gallery";
@@ -20,16 +20,13 @@ function Product() {
 
   const productData = data[0];
   const baseUrl = import.meta.env.VITE_BASE_URL;
-
-  useEffect(() => {
-    const goToTop = () => {
-      window.scrollTo(0, 0);
-    };
-    goToTop();
-  }, [location.pathname]);
+  const goToTop = () => {
+    window.scrollTo(0, 0);
+  };
+  goToTop();
 
   return (
-    <main className="px-6 md:px-[39px] xl:px-[165px] mb-[120px]">
+    <main className="mb-[120px] px-6 md:px-[39px] xl:px-[165px]">
       <Link
         to={location.state ? location.state.prevPath : ".."}
         className="mb-6 mt-4 inline-block text-[15px] font-medium opacity-50"
