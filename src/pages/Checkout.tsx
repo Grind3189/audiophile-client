@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { toggleScrollbar } from "../utils/toggleScrollbar";
 import { UserDetailsType } from "../types";
@@ -6,9 +6,17 @@ import Summary from "../components/Checkout/Summary";
 import CheckoutForm from "../components/Checkout/CheckoutForm";
 import OrderSuccess from "../components/Checkout/OrderSuccess";
 import Backdrop from "../components/shared/Backdrop";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 function Checkout() {
   const location = useLocation();
+  const cartedProducts = useSelector((state: RootState) => state.cart.cartedProducts)
+  console.log(cartedProducts)
+
+  if(!cartedProducts.length) {
+    return <Navigate to="/" />
+  }
  
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [userDetails, setUserDetails] = useState<UserDetailsType>(
