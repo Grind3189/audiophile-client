@@ -1,10 +1,11 @@
 import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { WidthContext } from "../../context/WidthContextProvider";
+import { useState, useContext } from "react";
+import { toggleScrollbar } from "../../utils/toggleScrollbar";
 import burgerIc from "../../assets/icons/icon-hamburger.svg";
 import logo from "../../assets/icons/logo.svg";
 import Menu from "./Menu";
 import Backdrop from "./Backdrop";
-import { useState, useContext } from "react";
-import { WidthContext } from "../../context/WidthContextProvider";
 import Cart from "./Cart";
 
 const Header = () => {
@@ -37,12 +38,8 @@ const Header = () => {
     });
   };
 
-  const toggleScrollbar = (status: string) => {
-    document.body.style.overflowY = status;
-  };
 
   width >= 1110 && showMenu && handleToggleMenu()
-
 
   return (
     <header className="bg-black-300 lg:px-[165px]">

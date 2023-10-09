@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
@@ -7,10 +6,10 @@ function Summary() {
     (state: RootState) => state.cart.cartedProducts,
   );
   const baseUrl = import.meta.env.VITE_BASE_URL;
-  let total: number = 0
-  let shipping: number = 50
-  let vat: number = 0
-  let grandTotal: number = 0
+  let total: number = 0;
+  let shipping: number = 50;
+  let vat: number = 0;
+  let grandTotal: number = 0;
 
   return (
     <section>
@@ -18,9 +17,9 @@ function Summary() {
         SUMMARY
       </h1>
       {cartedProducts.map((product) => {
-        total += (product.quantity * product.price)
-        vat = Math.floor(total * 0.2)
-        grandTotal = Math.floor(vat + shipping + total)
+        total += product.quantity * product.price;
+        vat = Math.floor(total * 0.2);
+        grandTotal = Math.floor(vat + shipping + total);
         return (
           <div className="mb-8 flex items-center gap-4" key={product.id}>
             <div className="h-[64px] w-[64px] overflow-hidden rounded-lg bg-white-300">
@@ -36,14 +35,14 @@ function Summary() {
               </h2>
               <span className="text-[14px] opacity-50">${product.price}</span>
             </div>
-            <span className="ml-auto">x{product.quantity}</span>
+            <span className="ml-auto font-bold">x{product.quantity}</span>
           </div>
         );
       })}
-      <div className="flex flex-col gap-2 mb-8">
+      <div className="mb-8 flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <span className="text-[15px] font-medium opacity-50">TOTAL</span>
-          <span className="text-[18px] font-bold">$ {total}</span>
+          <span className="text-[18px] font-bold">$ {total.toLocaleString()}</span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-[15px] font-medium opacity-50">SHIPPING</span>
@@ -53,18 +52,22 @@ function Summary() {
           <span className="text-[15px] font-medium opacity-50">
             VAT (INCLUDED)
           </span>
-          <span className="text-[18px] font-bold">$ {vat}</span>
+          <span className="text-[18px] font-bold">$ {vat.toLocaleString()}</span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-[15px] font-medium opacity-50">
             GRAND TOTAL
           </span>
           <span className="text-[18px] font-bold text-red_orange-200">
-            $ {grandTotal}
+            $ {grandTotal.toLocaleString()}
           </span>
         </div>
       </div>
-        <button className="bg-red_orange-200 h-[48px] w-full text-white-100 font-bold text-[13px] tracking-[1px] lg:hover:bg-red_orange-100 lg:w-[284px] xl:w-full">CONTINUE & PAY</button>
+      <button
+        className="h-[48px] w-full bg-red_orange-200 text-[13px] font-bold tracking-[1px] text-white-100 lg:w-[284px] lg:hover:bg-red_orange-100 xl:w-full"
+      >
+        CONTINUE & PAY
+      </button>
     </section>
   );
 }
