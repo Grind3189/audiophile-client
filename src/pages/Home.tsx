@@ -3,7 +3,7 @@ import Hero from "../components/home/Hero";
 import Featured from "../components/home/Featured";
 function Home() {
   return (
-    <main>
+    <main className="mb-[120px]">
       <section className="bg-black-300 lg:px-[165px]">
         <Hero />
       </section>

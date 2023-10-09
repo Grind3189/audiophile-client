@@ -1,6 +1,6 @@
 interface BackdropProp {
   children: React.ReactNode;
-  toggle: () => void
+  toggle?: () => void
 }
 
 const Backdrop = ({ children, toggle }: BackdropProp) => {

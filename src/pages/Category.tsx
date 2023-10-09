@@ -22,7 +22,7 @@ function Catergory() {
   }, [queryParams]);
 
   return (
-    <main>
+    <main className="mb-[120px]">
       <div className="mb-[64px] grid h-[102px] place-items-center bg-black-300 md:h-[200px]">
         <h1 className="text-[28px] font-bold uppercase tracking-[2px] text-white-100 md:text-[40px]">
           {queryParams === "headphones"

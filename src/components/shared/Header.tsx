@@ -41,6 +41,9 @@ const Header = () => {
     document.body.style.overflowY = status;
   };
 
+  width >= 1110 && showMenu && handleToggleMenu()
+
+
   return (
     <header className="bg-black-300 lg:px-[165px]">
       <div className="relative flex h-[90px] items-center justify-center border-b border-b-zinc-800 bg-black-300 px-6 md:px-[39px] lg:px-0">

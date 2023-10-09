@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/icons/logo.svg";
 import facebookIc from "../../assets/icons/icon-facebook.svg";
 import twitterIc from "../../assets/icons/icon-twitter.svg";
 import instagramIc from "../../assets/icons/icon-instagram.svg";
 const Footer = () => {
+  const {pathname} = useLocation()
   return (
-    <footer className="mt-[120px]">
-      <div className="mb-[120px] px-6 text-center lg:px-[165px] xl:mx-auto xl:flex xl:h-[588px] xl:flex-row-reverse xl:items-center xl:justify-between xl:gap-[30px]">
+    <footer>
+      {pathname !== "/checkout" && <div className="mb-[120px] px-6 text-center lg:px-[165px] xl:mx-auto xl:flex xl:h-[588px] xl:flex-row-reverse xl:items-center xl:justify-between xl:gap-[30px]">
         {/* img */}
         <div className="bg-footer-sm md:bg-footer-md xl:bg-footer-lg mb-10 h-[300px] max-md:max-w-[380px] rounded-lg bg-cover max-xl:mx-auto md:mb-[63px] md:w-[689px] xl:mb-0 xl:h-full xl:w-[50%]" />
         <div className="mx-auto max-w-[327px] md:max-w-[573px] xl:w-[50%] xl:text-left">
@@ -23,7 +24,7 @@ const Footer = () => {
             make Audiophile the best place to buy your portable audio equipment.
           </p>
         </div>
-      </div>
+      </div>}
 
       <div className="h-[654px] bg-black-100 px-6 text-white-100 md:h-[400px] md:px-[39px] lg:px-[165px] xl:h-[365px]">
         {/* hr line */}

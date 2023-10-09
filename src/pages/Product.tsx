@@ -29,7 +29,7 @@ function Product() {
   }, [location.pathname]);
 
   return (
-    <main className="px-6 md:px-[39px] xl:px-[165px]">
+    <main className="px-6 md:px-[39px] xl:px-[165px] mb-[120px]">
       <Link
         to={location.state ? location.state.prevPath : ".."}
         className="mb-6 mt-4 inline-block text-[15px] font-medium opacity-50"
