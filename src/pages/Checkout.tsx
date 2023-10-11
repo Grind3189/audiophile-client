@@ -12,7 +12,6 @@ import { RootState } from "../redux/store";
 function Checkout() {
   const location = useLocation();
   const cartedProducts = useSelector((state: RootState) => state.cart.cartedProducts)
-  console.log(cartedProducts)
 
   if(!cartedProducts.length) {
     return <Navigate to="/" />
